@@ -83,6 +83,12 @@ public class HomeFragment extends Fragment {
             getAndStoreLocation();
             getWeatherInfo();
         }
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+        } else {
+            // Permission already granted, you can access storage here
+        }
+
     }
 
     private void addTheHeaders() {
@@ -99,7 +105,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(String item) {
                 binding.newsPd.setVisibility(View.VISIBLE);
-                updateNewsArticles(item);
+                updateNewsArticles("Farming, Agriculture "+item);
             }
         });
         binding.textRecycler.setAdapter(headerAdapter);

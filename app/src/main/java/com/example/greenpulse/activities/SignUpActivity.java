@@ -112,7 +112,7 @@ public class SignUpActivity extends OtherActivity {
                 {
 //                    UserResponse.Data user = response.body().data;
 //                    sm.saveUserInfo(user.username,user.email,user.role, (String) user.dp);
-                    startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                    startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
                     overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                 }
             }

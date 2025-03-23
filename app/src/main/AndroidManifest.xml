@@ -22,29 +22,50 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/location_Key" />
+
+        <activity
+            android:name=".activities.GoogleMapsActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".activities.PhotoExpActivity"
+            android:exported="true" />
         <activity
             android:name=".activities.CropDetailsActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.FieldActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activities.PostActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.SearchActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".activities.ChatBotActivity"
             android:exported="true" />
         <activity
             android:name=".activities.CreatePostActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.FBPracActivity"
             android:exported="true" />
         <activity
             android:name=".activities.MapActivity"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".activities.DiseaseActivity"
             android:exported="true" />
@@ -65,31 +86,20 @@
             android:exported="false" />
         <activity
             android:name=".activities.SplashActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.SignInActivity"
             android:exported="false" />
         <activity
             android:name=".activities.SignUpActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/location_Key" />
     </application>
 
 </manifest>

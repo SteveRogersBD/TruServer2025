@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("com.google.gms.google-services")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -27,8 +28,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     buildFeatures{
         viewBinding = true
@@ -45,6 +46,9 @@ dependencies {
     implementation("com.google.firebase:firebase-storage:21.0.1")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("androidx.activity:activity:1.10.1")
+    implementation("androidx.navigation:navigation-fragment:2.8.8")
+    implementation("androidx.navigation:navigation-ui:2.8.8")
+    implementation("androidx.navigation:navigation-fragment:2.8.9")
     compileOnly("org.projectlombok:lombok:1.18.36")
     annotationProcessor("org.projectlombok:lombok:1.18.36")
     implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
@@ -55,6 +59,8 @@ dependencies {
     implementation("com.airbnb.android:lottie:6.6.0")
     implementation("com.tbuonomo:dotsindicator:4.2")
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("com.github.dhaval2404:imagepicker:2.1")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.google.firebase:firebase-auth:23.2.0")

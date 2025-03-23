@@ -13,14 +13,19 @@ public class Field {
     public String title;
     public String description;
     public List<MyLatLng>points;
+    public MyLatLng centerPoint;
+    public String address;
     public List<Task>tasks;
 
     public Field() {
     }
 
-    public Field(String title, String description, List<MyLatLng> points, List<Task> tasks) {
+    public Field(String title, String description, MyLatLng centerPoint,
+                 String address,List<MyLatLng> points, List<Task> tasks) {
         this.title = title;
         this.description = description;
+        this.centerPoint = centerPoint;
+        this.address = address;
         this.points = points;
         this.tasks = tasks;
     }

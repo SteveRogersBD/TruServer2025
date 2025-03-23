@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.example.greenpulse.OtherActivity;
 import com.example.greenpulse.R;
+import com.example.greenpulse.SharedPrefManager;
 import com.example.greenpulse.databinding.ActivityMapBinding;
 import com.example.greenpulse.models.Event;
 import com.example.greenpulse.models.Field;
@@ -74,6 +75,7 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
     DatabaseReference fieldDb,eventDb;
     List<Field>myFields;
     List<Event>events;
+    SharedPrefManager sm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,10 +87,9 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         events = new ArrayList<>();
         fieldDb = FirebaseDatabase.getInstance().getReference().child("fields");
         eventDb = FirebaseDatabase.getInstance().getReference().child("events");
-//        retrieveFields(fields -> {
-//            // This block will be executed once the data is successfully retrieved
-//            addFieldsOnMap(fields); // Add fields to map after data retrieval
-//        });
+        locationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        sm = new SharedPrefManager(MapActivity.this);
+
 
         // Obtain the SupportMapFragment and get notified when the map is ready to use.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -121,8 +122,11 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
+        Toast.makeText(this, ""+sm.getUserId(), Toast.LENGTH_SHORT).show();
         mMap = googleMap;
         askLocationPermission();
+        retrieveFields();
+        retrieveEvents();
         // Add a marker and move the camera
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
@@ -147,7 +151,7 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
 
     }
 
-    private void retrieveFields(DataRetrievalCallback callback) {
+    private void retrieveFields() {
         fieldDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -158,8 +162,7 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
                         myFields.add(aField);
                     }
                 }
-                // Trigger the callback when data is retrieved
-                callback.onDataRetrieved(myFields);
+                addFieldsOnMap(myFields);
             }
 
             @Override
@@ -187,7 +190,34 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
             polygon = mMap.addPolygon(polygonOptions);
         }
     }
+    // Added: Retrieve events from Firebase
+    private void retrieveEvents() {
+        eventDb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                events.clear(); // Clear existing list
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Event anEvent = dataSnapshot.getValue(Event.class);
+                    if (anEvent != null) {
+                        events.add(anEvent);
+                    }
+                }
+                addEventsOnMap(events); // Display events on the map
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("FirebaseError", "Failed to retrieve events: " + error.getMessage());
+                Toast.makeText(MapActivity.this, "Failed to retrieve events", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    // Added: Display events on the map
+    private void addEventsOnMap(List<Event> events) {
+        for (Event event : events) {
+            drawCircle(event); // Reuse the existing drawCircle method to display each event
+        }
+    }
 
     private void retrieveMyLocation(String[] location)
     {
@@ -243,8 +273,8 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
 
                     // Create a LatLng object for the current location
                     LatLng userLocation = new LatLng(latitude, longitude);
-                    Toast.makeText(MapActivity.this, userLocation.toString(),
-                            Toast.LENGTH_LONG).show();
+//                    Toast.makeText(MapActivity.this, userLocation.toString(),
+//                            Toast.LENGTH_LONG).show();
                     // Move the camera to the user's location with a closer zoom
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 17)); // Adjusted zoom level to 17
 
@@ -283,13 +313,18 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         //pointList.clear();
 
     }
-    private LatLng calculateCenterPoint(List<LatLng> points) {
-        if (points.isEmpty()) return null;
+    private LatLng calculateCenterPoint(List<MyLatLng> points) {
+        List<LatLng> pointsList = new ArrayList<>();
+        for (MyLatLng point : points) {
+            pointsList.add(point.latLng());
+        }
+
+        if (pointList.isEmpty()) return null;
 
         double latSum = 0;
         double lngSum = 0;
 
-        for (LatLng point : points) {
+        for (LatLng point : pointList) {
             latSum += point.latitude;
             lngSum += point.longitude;
         }
@@ -390,9 +425,12 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
                 MyLatLng myPoint = new MyLatLng(point.latitude, point.longitude);
                 myPointList.add(myPoint);
             }
-
+            LatLng centerPoint = calculateCenterPoint(myPointList);
+            String address = getAddressFromLatLng(centerPoint);
+            MyLatLng cp = new MyLatLng(centerPoint.latitude,centerPoint.longitude);
             // Create Field object and save to database
-            Field myField = new Field(title, description, myPointList, new ArrayList<Task>());
+            Field myField = new Field(title, description, cp,address,
+                    myPointList, new ArrayList<Task>());
             fieldDb.child(myField.title).setValue(myField);
             pointList.clear();
             // Display success message and dismiss the dialog
@@ -474,9 +512,7 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
     }
 
 
-    public interface DataRetrievalCallback {
-        void onDataRetrieved(List<Field> fields);
-    }
+
 
 
 

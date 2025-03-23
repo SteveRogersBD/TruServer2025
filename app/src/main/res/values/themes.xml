@@ -38,18 +38,25 @@
 
         <item name="android:windowContentTransitions">true</item>
     </style>
+
     <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:windowBackground">@color/white</item>
         <item name="android:windowMinWidthMajor">90%</item>
     </style>
+
     <style name="PickerStyle">
         <item name="android:tint">@color/buttonSecondary</item>
     </style>
+
     <style name="CustomActionBarTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@color/white</item> <!-- Replace with your desired color -->
         <item name="android:textSize">20sp</item> <!-- Optional: Adjust text size -->
     </style>
-
+    <!-- Base application theme. -->
+    <style name="Base.AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
 
 
 </resources>

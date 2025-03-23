@@ -68,7 +68,7 @@ public class SignInActivity extends AppCompatActivity {
                 if(response.isSuccessful() && response.body()!=null)
                 {
                     UserResponse.Data user = response.body().data;
-                    sm.saveUserInfo(user.username,user.email,user.role, (String) user.dp);
+                    sm.saveUserInfo(user.username,user.email,user.role, (String) user.dp, user.userId);
                     startActivity(new Intent(SignInActivity.this, MainActivity.class));
                     overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                 }

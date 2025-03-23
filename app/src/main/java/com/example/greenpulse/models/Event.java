@@ -12,4 +12,8 @@ public class Event {
         this.lat = lat;
         this.lon = lon;
     }
+
+    public Event() {
+        // Default constructor required for calls to DataSnapshot.getValue(Event.class)
+    }
 }

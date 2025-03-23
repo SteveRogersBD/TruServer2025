@@ -22,10 +22,12 @@ import com.example.greenpulse.OtherActivity;
 import com.example.greenpulse.R;
 import com.example.greenpulse.databinding.ActivityAnalyzeBinding;
 import com.example.greenpulse.models.DiseasedCrop;
+import com.github.dhaval2404.imagepicker.ImagePicker;
 
 
 public class AnalyzeActivity extends OtherActivity {
 
+    private static final int PICK_IMAGE_REQUEST = 1 ;
     ActivityAnalyzeBinding binding;
     GeminiHelper gm;
     private final int REQUEST_STORAGE_PERMISSION = 1000;
@@ -40,9 +42,31 @@ public class AnalyzeActivity extends OtherActivity {
         gm = new GeminiHelper();
 
         dealWithTheSpinners();
-        binding.picker.setOnClickListener(onClickListener);
+        binding.picker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openImagePicker();
+            }
+        });
         binding.analyzeButton.setOnClickListener(onClickListener);
 
+    }
+    private void openImagePicker() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/*");
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+            Uri imageUri = data.getData();
+            binding.picker.setImageURI(imageUri);   // Display the selected image
+        } else {
+            Toast.makeText(this, "No image selected", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void dealWithTheSpinners()
@@ -167,7 +191,11 @@ public class AnalyzeActivity extends OtherActivity {
                     new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE},
                     REQUEST_STORAGE_PERMISSION);
         } else {
-            callImagePicker(); // Call image picker if permission already granted
+            ImagePicker.with(this)
+                    .crop()	    			//Crop image(Optional), Check Customization for more option
+                    .compress(1024)			//Final image size will be less than 1 MB(Optional)
+                    .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+                    .start();
         }
 
     }
@@ -188,18 +216,27 @@ public class AnalyzeActivity extends OtherActivity {
         startActivityForResult(intent,REQUEST_IMAGE_PICK);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE_PICK && resultCode == RESULT_OK && data != null) {
-            Uri selectedImageUri = data.getData();
-            if (selectedImageUri != null) {
-                binding.picker.setImageURI(selectedImageUri);
-                binding.picker.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == REQUEST_IMAGE_PICK && resultCode == RESULT_OK && data != null) {
+//            Uri selectedImageUri = data.getData();
+//            if (selectedImageUri != null) {
+//                binding.picker.setImageURI(selectedImageUri);
+//                binding.picker.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//
+//            }
+//        }
+//    }
 
-            }
-        }
-    }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        Uri uri = data.getData();
+//        binding.picker.setImageURI(uri);
+//        //binding.picker.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//    }
 
     private String createPrompt(DiseasedCrop diseasedCrop)
     {

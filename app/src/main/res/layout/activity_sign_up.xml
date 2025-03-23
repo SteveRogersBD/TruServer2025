@@ -38,6 +38,7 @@
                 android:text="Hello There,"
                 android:textSize="40sp"
                 android:textStyle="bold"
+                android:textColor="@color/white"
                 android:transitionName="title" />
 
             <TextView
@@ -48,6 +49,7 @@
                 android:text="Welcome Back"
                 android:textSize="40sp"
                 android:textStyle="bold"
+                android:textColor="@color/white"
                 android:transitionName="subtitle" />
 
             <TextView
@@ -57,6 +59,7 @@
                 android:text="Sign up to continue"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:textColor="@color/colorAccent"
                 android:id="@+id/sub_sign_up"
                 android:transitionName="sub_anim" />
         </LinearLayout>
@@ -141,16 +144,19 @@
             android:layout_marginTop="20dp"
             android:gravity="center">
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/sign_up_btn_sign_up"
                 android:layout_width="120dp"
                 android:layout_height="65dp"
                 android:text="Sign Up"
                 android:textSize="20sp"
                 android:padding="5dp"
+                android:background="@color/colorPrimaryVariant"
+                android:textColor="@color/white"
+                android:layout_marginBottom="10dp"
                 android:transitionName="button_anim" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/google_btn_sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
@@ -158,6 +164,8 @@
                 app:icon="@drawable/google"
                 android:text="Sign in using Google"
                 android:textSize="20sp"
+                android:background="@color/colorPrimaryVariant"
+                android:textColor="@color/white"
                 android:transitionName="google_anim" />
 
             <!-- Bottom Text: Already have an account? -->
@@ -175,7 +183,9 @@
                     android:fontFamily="@font/antic"
                     android:text="Already have an account?"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    />
 
                 <TextView
                     android:id="@+id/sign_in_tv_sign_up"

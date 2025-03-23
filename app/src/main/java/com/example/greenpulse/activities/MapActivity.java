@@ -284,18 +284,6 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
             }
         });
     }
-    private void getAddress(LatLng location) throws IOException {
-        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
-        List<Address>addressList;
-        addressList = geocoder.getFromLocation(location.latitude,location.longitude,1);
-        if(addressList!=null)
-        {
-            String address = addressList.get(0).toString();
-            Toast.makeText(this, address, Toast.LENGTH_LONG).show();
-
-        }
-
-    }
 
     private void drawPolygon() {
         // Clear any existing polygons

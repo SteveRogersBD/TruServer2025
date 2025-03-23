@@ -44,16 +44,17 @@
                         android:layout_height="100dp"
                         android:src="@drawable/danger_sign"
                         />
+
                     <TextView
                         android:id="@+id/disease_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:minHeight="100dp"
                         android:padding="10dp"
                         android:text="Early Blight"
-                        android:gravity="center"
-                        android:textSize="40sp"
-                        />
+                        android:textColor="@color/white"
+                        android:textSize="40sp" />
 
                 </LinearLayout>
 
@@ -67,30 +68,32 @@
                 android:minHeight="150dp"
                 android:padding="10dp"
                 android:text="@string/disease_info"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:lineSpacingExtra="3dp"
                 android:justificationMode="inter_word"/>
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="20dp"
-               android:layout_marginBottom="20dp"
-               >
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Related Images"
-                   android:textSize="25sp"
-                   android:layout_marginRight="3dp"
-                   />
-               <View
-                   android:layout_width="match_parent"
-                   android:layout_height="5dp"
-                   android:layout_gravity="center_vertical"
-                   android:background="@color/white"
-                   />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Related Images"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    android:layout_marginRight="3dp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/white"
+                    />
 
-           </LinearLayout>
+            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -109,7 +112,7 @@
 
 
 
-            <!-- Symptoms                      -->
+            <!-- Symptoms -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -120,6 +123,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Symptoms"
+                    android:textColor="@color/white"
                     android:textSize="25sp"
                     android:layout_marginRight="3dp"
                     />
@@ -137,12 +141,13 @@
                 android:minHeight="150dp"
                 android:padding="10dp"
                 android:text="@string/symptoms"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:lineSpacingExtra="3dp"
                 android:justificationMode="inter_word"/>
-            <!-- Symptoms                      -->
+            <!-- Symptoms -->
 
-            <!-- Potential Threat              -->
+            <!-- Potential Threat -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -153,6 +158,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Potential Threat"
+                    android:textColor="@color/white"
                     android:textSize="25sp"
                     android:layout_marginRight="3dp"
                     />
@@ -171,13 +177,14 @@
                 android:minHeight="100dp"
                 android:padding="10dp"
                 android:text="@string/crop_loss"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:lineSpacingExtra="3dp"
                 android:justificationMode="inter_word"
                 />
 
 
-            <!-- Prevention                      -->
+            <!-- Prevention -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -188,6 +195,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Prevention"
+                    android:textColor="@color/white"
                     android:textSize="25sp"
                     android:layout_marginRight="3dp"
                     />
@@ -206,13 +214,14 @@
                 android:minHeight="200dp"
                 android:padding="10dp"
                 android:text="@string/prevention"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:lineSpacingExtra="3dp"
                 android:justificationMode="inter_word"/>
 
-            <!-- Prevention                      -->
+            <!-- Prevention -->
 
-            <!-- Treatment                      -->
+            <!-- Treatment -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -223,6 +232,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Treatment"
+                    android:textColor="@color/white"
                     android:textSize="25sp"
                     android:layout_marginRight="3dp"
                     />
@@ -241,14 +251,14 @@
                 android:minHeight="200dp"
                 android:padding="10dp"
                 android:text="@string/prevention"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:lineSpacingExtra="3dp"
                 android:justificationMode="inter_word"/>
 
-            <!-- Treatment                      -->
+            <!-- Treatment -->
 
-
-            <!-- Post Disease Management                      -->
+            <!-- Post Disease Management -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -259,6 +269,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Post Disease Management"
+                    android:textColor="@color/white"
                     android:textSize="25sp"
                     android:layout_marginRight="3dp"
                     />
@@ -277,13 +288,14 @@
                 android:minHeight="200dp"
                 android:padding="10dp"
                 android:text="@string/management"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:lineSpacingExtra="3dp"
                 android:justificationMode="inter_word"/>
 
-            <!-- Post Disease Management                      -->
+            <!-- Post Disease Management -->
 
-            <!-- Related Articles                      -->
+            <!-- Related Articles -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -294,6 +306,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Related Articles"
+                    android:textColor="@color/white"
                     android:textSize="25sp"
                     android:layout_marginRight="3dp"
                     />
@@ -321,14 +334,9 @@
                     />
             </RelativeLayout>
 
-
-            <!-- Related Articles                      -->
-
-
-            
+            <!-- Related Articles -->
 
         </LinearLayout>
-
 
     </ScrollView>
 

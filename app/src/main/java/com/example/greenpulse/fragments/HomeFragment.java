@@ -157,7 +157,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<WeatherResponse> call, Throwable throwable) {
-                binding.errorTv.setText(throwable.getLocalizedMessage());
+                //binding.errorTv.setText(throwable.getLocalizedMessage());
                 //Toast.makeText(getContext(), throwable.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });

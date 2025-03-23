@@ -38,33 +38,6 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp" />
 
-<!--            &lt;!&ndash; LinearLayout Header for Videos &ndash;&gt;-->
-<!--            <LinearLayout-->
-<!--                android:id="@+id/top_ll"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical">-->
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="YouTube Videos"-->
-<!--                    android:textSize="20sp"-->
-<!--                    android:padding="5dp"-->
-<!--                    android:layout_marginRight="5dp" />-->
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="4dp"-->
-<!--                    android:layout_gravity="center_vertical"-->
-<!--                    android:background="@color/white" />-->
-<!--            </LinearLayout>-->
-
-<!--            &lt;!&ndash; RecyclerView for YouTube Videos &ndash;&gt;-->
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/video_recycler_home"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:padding="10dp" />-->
-
             <!-- LinearLayout Header for Articles -->
             <LinearLayout
                 android:id="@+id/middle_ll"
@@ -77,6 +50,7 @@
                     android:layout_height="wrap_content"
                     android:text="Articles"
                     android:textSize="20sp"
+                    android:textColor="@color/white"
                     android:padding="5dp"
                     android:layout_marginRight="5dp" />
                 <View
@@ -117,6 +91,7 @@
                     android:text="Weekly Weather Forecast"
                     android:textSize="20sp"
                     android:padding="5dp"
+                    android:textColor="@color/white"
                     android:layout_marginRight="5dp" />
                 <View
                     android:layout_width="match_parent"
@@ -132,13 +107,6 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp" />
 
-            <TextView
-                android:id="@+id/error_tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textSize="20sp"
-                android:textColor="@color/black"/>
 
         </LinearLayout>
     </ScrollView>

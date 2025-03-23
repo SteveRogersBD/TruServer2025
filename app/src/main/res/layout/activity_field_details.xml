@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/grad_3"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@android:color/white" />
+
+        <!-- Main Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Image Picker -->
+
+            <!-- Address -->
+            <ImageView
+                android:id="@+id/image_field"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginBottom="18dp"
+                android:padding="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/baseline_image_24" />
+
+            <TextView
+                android:id="@+id/text_field_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address: Not available"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Description -->
+            <TextView
+                android:id="@+id/text_field_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description: Not available"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Buttons (Vertical Layout) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
+
+
+                <Button
+                    android:id="@+id/button_weather"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="18sp"
+                    android:text="Get Weather Info"
+                    android:elevation="20dp"
+                    android:backgroundTintMode="@color/black"
+                    android:backgroundTint="@color/colorPrimaryVariant"
+                    android:textColor="@android:color/white" />
+                <Button
+                    android:id="@+id/button_threat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="18sp"
+                    android:elevation="20dp"
+                    android:text="Check Alerts"
+                    android:backgroundTintMode="@color/black"
+                    android:backgroundTint="@color/colorPrimaryVariant"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/button_ask"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Ask Gemini"
+                    android:textSize="18sp"
+                    android:elevation="20dp"
+                    android:backgroundTintMode="@color/black"
+                    android:backgroundTint="@color/colorPrimaryVariant"
+                    android:textColor="@android:color/white" />
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

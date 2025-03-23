@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="20dp"
+    app:cardCornerRadius="16dp"
+    android:background="@color/white"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="@color/colorPrimaryVariant">
+
+        <ImageView
+            android:id="@+id/poster_video"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="fitXY"
+            android:contentDescription="Farming"
+            android:src="@drawable/thumb"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/chanel_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/cap" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="8dp"> <!-- Added marginStart for better alignment -->
+
+                <TextView
+                    android:id="@+id/caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="XYZ fun experiment"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:padding="10dp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:minHeight="48dp" /> <!-- Set minimum height -->
+
+                <TextView
+                    android:id="@+id/chanel_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mr. Heisenberg"
+                    android:textColor="#978F8F"
+                    android:textSize="15sp"
+                    android:padding="2dp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:maxHeight="40dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/views_video"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6.3M views"
+                        android:textColor="#978F8F"
+                        android:textSize="15sp"
+                        android:padding="3dp"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:maxHeight="40dp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/circle"
+                        android:layout_gravity="center_vertical"
+                        app:tint="#978F8F"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        />
+                    <TextView
+                        android:id="@+id/date_video"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="published 6 years ago"
+                        android:textColor="#978F8F"
+                        android:textSize="15sp"
+                        android:padding="3dp"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:maxHeight="40dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

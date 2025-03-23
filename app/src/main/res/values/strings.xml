@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">GreenPulse</string>
+    <string name="app_slogan">Sow Success, Reap Innovation!</string>
+    <string name="disease_analyzer">Sick Leaf Scanner</string>
+    <string name="trends">AgriPulse:Stay Updated with Farming Trends</string>
+    <string name="map">Mapping Your Way to Healthier Harvests</string>
+    <string name="bot">AgriHelp: Your AI Farming Expert</string>
+    <string name="social">AgriConnect: Share, React, and Connect with Farmers Worldwide</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="newApiKey">1f9781e9874d7a3e2dc161fafe499479b7c00e22706d5b01210f84ed8658b573</string>
+
+    <string name="prevention">To prevent early blight in tomatoes, practice crop rotation, avoiding planting tomatoes in the same soil consecutively. Use disease-resistant varieties and ensure proper spacing for air circulation. Apply a balanced fertilizer to strengthen plants, but avoid excessive nitrogen, which promotes susceptibility. Water at the base to keep foliage dry and prune lower leaves to prevent soil contact. Mulch to minimize soil splashing onto leaves. Remove and dispose of infected plants immediately to prevent spread. Use fungicides like copper-based sprays as a preventive measure. Regularly inspect plants and maintain a clean garden to reduce fungal spores in the environment.</string>
+
+    <string name="symptoms">
+        * Small, dark, circular spots on leaves\n
+        * Lesions may enlarge and coalesce\n
+        * Yellowing and browning of leaves\n
+        * Premature leaf drop\n
+        * Reduced fruit production
+    </string>
+    <string name="crop_loss">
+        Early blight can lead to significant crop loss if left untreated.
+        Severe infections can result in up to 50% or more yield reduction.
+    </string>
+    <string name="disease_info">Early blight is a common fungal disease caused by Alternaria solani,
+primarily affecting tomatoes and potatoes. It thrives in warm, humid conditions and spreads through infected soil,
+plant debris, and water splashes. Symptoms include dark, concentric rings on leaves, stems, and fruits,
+often leading to leaf yellowing and premature fruit drop. To manage early blight, practice crop rotation,
+use resistant varieties, and maintain proper spacing for air circulation. Water plants at the base to keep foliage dry
+and apply mulch to reduce soil contact. Preventive fungicides like copper-based sprays can help,
+along with removing infected plants to minimize spread.
+    </string>
+
+    <string name="management">
+        Early blight management strategies include:\n
+        * Planting disease-resistant tomato varieties\n
+        * Rotating crops to avoid infecting subsequent tomato crops\n
+        * Removing and destroying infected plant debris\n
+        * Practicing good sanitation in the garden\n
+        * Using fungicides as a last resort\n
+    </string>
+
+    <string name="weatherKey">c4179b477fa847caa06a8b944f07707f</string>
+    <string name="location_Key">AIzaSyAHSSVoT_SOJTv9O2Gl08t-KeUiw4o4nV4</string>
+    <string name="gemini_key">AIzaSyDk0_Ar996a49JX_ZbEUjUpN089gj3sSuM</string>
+</resources>

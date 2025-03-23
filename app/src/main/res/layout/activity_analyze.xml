@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AnalyzeActivity"
+    android:background="@drawable/grad_3"
+    android:orientation="vertical">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@android:color/transparent"
+        android:id="@+id/toolbar">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Analyze"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:padding="5dp"/>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <ImageView
+        android:id="@+id/picker"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:src="@drawable/baseline_image_24"
+        android:layout_marginBottom="16dp"
+        android:padding="10dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <!-- Material EditText for Name -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:layout_marginBottom="16dp"
+                android:background="@color/white">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/materialEditTextName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Spinner for Type -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Type"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/white" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/spinner_background">
+                    <TextView
+                        android:id="@+id/type_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:padding="8dp"
+                        android:text="Crop Type"
+                        android:textSize="18sp"
+                        android:layout_weight="2"
+                        android:layout_marginBottom="8dp"/>
+                    <Spinner
+                        android:id="@+id/type_spinner"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:padding="8dp"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- Spinner for Growth -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Growth Stage"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/white" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/spinner_background">
+                    <TextView
+                        android:id="@+id/growth_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:padding="8dp"
+                        android:text="Crop Type"
+                        android:textSize="18sp"
+                        android:layout_weight="2"
+                        android:layout_marginBottom="8dp"/>
+                    <Spinner
+                        android:id="@+id/growth_spinner"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:padding="8dp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <!-- Material EditText for Description -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Symptoms"
+                android:layout_marginBottom="16dp"
+                android:background="@color/white">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/symptom_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:minHeight="150dp"
+                    android:textSize="14sp"
+                    android:padding="8dp"
+                    android:gravity="center"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Material EditText for Notes -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Additional Info"
+                android:layout_marginBottom="16dp"
+                android:background="@color/white">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_note_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:minHeight="150dp"
+                    android:textSize="14sp"
+                    android:padding="8dp"
+                    android:gravity="center"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/analyze_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Analyze"
+                android:textSize="20sp"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

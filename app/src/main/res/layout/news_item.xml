@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    card_view:cardElevation="4dp"
+    card_view:cardCornerRadius="16dp"
+    android:background="@color/buttonSecondary"
+    android:layout_margin="8dp">
+
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+    android:background="@color/colorPrimaryVariant"
+android:padding="16dp">
+
+<!-- Fixed Aspect Ratio for Image -->
+<ImageView
+    android:id="@+id/poster_news"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="2"
+    android:scaleType="centerCrop"
+    android:contentDescription="Farming" />
+
+<!-- Fixed Lines for Title -->
+<TextView
+    android:id="@+id/caption_news"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.5"
+    android:ellipsize="end"
+    android:maxLines="1"
+    android:text="Win $1,000,000"
+    android:textColor="@color/white"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:paddingTop="8dp" />
+
+<!-- Fixed Lines for Date -->
+<TextView
+    android:id="@+id/published_at_news"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight=".25"
+    android:text="Publication date: 2024-10-31"
+    android:textColor="#DABABA"
+    android:textSize="14sp"
+    android:paddingTop="4dp" />
+
+</LinearLayout>
+    </androidx.cardview.widget.CardView>

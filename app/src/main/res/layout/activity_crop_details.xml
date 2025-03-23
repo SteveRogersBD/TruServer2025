@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/grad_3"
+    android:orientation="vertical"
+    tools:context=".activities.CropDetailsActivity">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimaryVariant" />
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/image_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- ScrollView for the crop details -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Crop Details -->
+            <TextView
+                android:id="@+id/tv_crop_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Crop Name: Tomato"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="16dp"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_scientific_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scientific Name: Solanum lycopersicum"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_crop_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Crop Type: Vegetable"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Optimal Temperature: 18.0°C - 30.0°C"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_soil_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Soil Type: Loamy, well-drained"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_soil_ph"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Soil pH: 5.5 - 7.5"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_water_requirement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Water Requirement: Moderate; 1-2 inches per week"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_sunlight_requirement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sunlight: Full sun; 6-8 hours daily"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_planting_season"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Planting Season: Spring, Summer"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_harvesting_period"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Harvesting: 60-85 days after transplanting"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_fertilizer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fertilizer: Use NPK 10-10-10 before planting"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_nutrients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nutrient Requirements: High in nitrogen, phosphorus, and potassium."
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_pests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pests: Aphids, whiteflies, tomato hornworms"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_diseases"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Diseases: Early blight, late blight, powdery mildew"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_treatment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Treatment: Use neem oil for aphids; copper fungicide for blight"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_irrigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Irrigation: Drip irrigation or soaker hoses"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_storage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Storage: 12-15°C; avoid refrigeration"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tv_short_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description: Tomato is a nutrient-rich fruit used in cooking."
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="16dp"
+                android:padding="8dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

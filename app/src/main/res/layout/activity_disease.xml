@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/grad_3"
+    tools:context=".activities.DiseaseActivity">
+    <include layout="@layout/toolbar_layout"
+        android:layout_alignParentTop="true"
+        tools:ignore="IncludeLayoutParam"
+        android:id="@+id/toolbar_disease"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/toolbar_disease"
+        android:padding="10dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/buttonSecondary"
+                android:elevation="20dp"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="20dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:background="@color/buttonSecondary"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/danger_sign"
+                        />
+                    <TextView
+                        android:id="@+id/disease_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="100dp"
+                        android:padding="10dp"
+                        android:text="Early Blight"
+                        android:gravity="center"
+                        android:textSize="40sp"
+                        />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:id="@+id/disease_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp"
+                android:padding="10dp"
+                android:text="@string/disease_info"
+                android:textSize="18sp"
+                android:lineSpacingExtra="3dp"
+                android:justificationMode="inter_word"/>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20dp"
+               android:layout_marginBottom="20dp"
+               >
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Related Images"
+                   android:textSize="25sp"
+                   android:layout_marginRight="3dp"
+                   />
+               <View
+                   android:layout_width="match_parent"
+                   android:layout_height="5dp"
+                   android:layout_gravity="center_vertical"
+                   android:background="@color/white"
+                   />
+
+           </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <androidx.viewpager2.widget.ViewPager2
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/image_view_pager"/>
+                <ProgressBar
+                    android:id="@+id/load_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="invisible"/>
+            </RelativeLayout>
+
+
+
+            <!-- Symptoms                      -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Symptoms"
+                    android:textSize="25sp"
+                    android:layout_marginRight="3dp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/white"
+                    />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/disease_symptoms_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp"
+                android:padding="10dp"
+                android:text="@string/symptoms"
+                android:textSize="18sp"
+                android:lineSpacingExtra="3dp"
+                android:justificationMode="inter_word"/>
+            <!-- Symptoms                      -->
+
+            <!-- Potential Threat              -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Potential Threat"
+                    android:textSize="25sp"
+                    android:layout_marginRight="3dp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/white"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/disease_potential_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+                android:padding="10dp"
+                android:text="@string/crop_loss"
+                android:textSize="18sp"
+                android:lineSpacingExtra="3dp"
+                android:justificationMode="inter_word"
+                />
+
+
+            <!-- Prevention                      -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prevention"
+                    android:textSize="25sp"
+                    android:layout_marginRight="3dp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/white"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/disease_prevention_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="200dp"
+                android:padding="10dp"
+                android:text="@string/prevention"
+                android:textSize="18sp"
+                android:lineSpacingExtra="3dp"
+                android:justificationMode="inter_word"/>
+
+            <!-- Prevention                      -->
+
+            <!-- Treatment                      -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Treatment"
+                    android:textSize="25sp"
+                    android:layout_marginRight="3dp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/white"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/disease_treatment_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="200dp"
+                android:padding="10dp"
+                android:text="@string/prevention"
+                android:textSize="18sp"
+                android:lineSpacingExtra="3dp"
+                android:justificationMode="inter_word"/>
+
+            <!-- Treatment                      -->
+
+
+            <!-- Post Disease Management                      -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Post Disease Management"
+                    android:textSize="25sp"
+                    android:layout_marginRight="3dp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/white"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/disease_post_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="200dp"
+                android:padding="10dp"
+                android:text="@string/management"
+                android:textSize="18sp"
+                android:lineSpacingExtra="3dp"
+                android:justificationMode="inter_word"/>
+
+            <!-- Post Disease Management                      -->
+
+            <!-- Related Articles                      -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Related Articles"
+                    android:textSize="25sp"
+                    android:layout_marginRight="3dp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/white"
+                    />
+
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/articles_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/load_news"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    />
+            </RelativeLayout>
+
+
+            <!-- Related Articles                      -->
+
+
+            
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

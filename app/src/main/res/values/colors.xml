@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="leaf_green">#4CAF50</color>
+    <color name="dark_green">#1C7C20</color>
+    <color name="light_blue">#03A9F4</color>
+
+    <color name="colorPrimary">#388E3C</color> <!-- Forest Green -->
+    <color name="colorPrimaryVariant">#2C6E2F</color> <!-- Darker Green -->
+    <color name="colorOnPrimary">#FFFFFF</color> <!-- White text on primary buttons -->
+
+    <!-- Secondary Color Palette -->
+    <color name="colorSecondary">#8D6E63</color> <!-- Earthy Brown -->
+    <color name="colorSecondaryVariant">#6E4B3A</color> <!-- Darker Brown -->
+    <color name="colorOnSecondary">#FFFFFF</color> <!-- White text on secondary elements -->
+
+    <!-- Background and Surface Colors -->
+    <color name="colorBackground">#F5F5F5</color> <!-- Off-white background -->
+    <color name="colorSurface">#FFFFFF</color> <!-- White surface for cards, modals -->
+    <color name="colorOnBackground">#212121</color> <!-- Dark text on background -->
+    <color name="colorOnSurface">#212121</color> <!-- Dark text on surface -->
+
+    <!-- Accent Colors -->
+    <color name="colorAccent">#FF9800</color> <!-- Orange for accent buttons -->
+    <color name="colorError">#D32F2F</color> <!-- Red for error states -->
+    <color name="colorOnError">#FFFFFF</color> <!-- White text on error states -->
+
+    <!-- Text Colors -->
+    <color name="colorTextPrimary">#212121</color> <!-- Dark text -->
+    <color name="colorTextSecondary">#757575</color> <!-- Lighter text for secondary -->
+
+    <!-- Button Colors -->
+    <color name="colorButtonText">#FFFFFF</color> <!-- White text on buttons -->
+
+    <!-- Custom Button Background Color -->
+    <color name="colorButtonPrimary">#4CAF50</color> <!-- Bright Green for primary buttons -->
+    <color name="buttonSecondary">#202437</color>
+    <!-- res/color/tab_icon_selector.xml -->
+
+</resources>

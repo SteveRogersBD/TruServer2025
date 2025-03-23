@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/grad_3">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimaryVariant"
+        android:id="@+id/toolbar_post"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Profile Section -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <!-- Profile Picture -->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileImage_PA"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/user"
+                    android:scaleType="centerCrop" />
+
+                <!-- Username -->
+                <TextView
+                    android:id="@+id/username_PA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manojkumar"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_toEndOf="@id/profileImage_PA"
+                    android:layout_marginStart="8dp"
+                    android:layout_alignTop="@id/profileImage_PA" />
+
+                <!-- Subtitle -->
+                <TextView
+                    android:id="@+id/role_PA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Farmer"
+                    android:textColor="#AAAAAA"
+                    android:textSize="14sp"
+                    android:layout_toEndOf="@id/profileImage_PA"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@id/username_PA" />
+
+                <!-- Post Date -->
+                <TextView
+                    android:id="@+id/postDate_PA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dec 4 2024"
+                    android:textColor="#AAAAAA"
+                    android:textSize="12sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignTop="@id/profileImage_PA" />
+            </RelativeLayout>
+
+            <!-- Image Section -->
+            <ImageView
+                android:id="@+id/postImage_PA"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:src="@drawable/farming"
+                android:layout_marginTop="16dp" />
+
+            <!-- Caption -->
+            <TextView
+                android:id="@+id/caption_PA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tomato"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="8dp" />
+
+            <!-- Description -->
+            <TextView
+                android:id="@+id/description_PA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="India | Insecticides • Fungicides • Herbicides | Many plants | Shows on Leaf • Stem • Fruit"
+                android:textColor="#AAAAAA"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- RecyclerView for Comments -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/comment_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Input Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <!-- Input Box -->
+        <EditText
+            android:id="@+id/messageInput_PA"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Your message"
+            android:textColor="@color/black"
+            android:textColorHint="#888888"
+            android:background="@drawable/search_view_bg"
+            android:padding="12dp"
+            android:inputType="text" />
+
+        <!-- Send Button -->
+        <ImageView
+            android:id="@+id/sendButton_PA"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/send"
+            android:background="?attr/selectableItemBackground"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+</LinearLayout>

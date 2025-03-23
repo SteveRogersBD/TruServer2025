@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HomeFragment"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <!-- SearchView on Top -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Search here..."
+        android:iconifiedByDefault="false"
+        android:padding="5dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/search_view_bg"/>
+
+    <!-- ScrollView for Remaining Layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_view_home"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Horizontal RecyclerView for Text Headers -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/text_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp" />
+
+<!--            &lt;!&ndash; LinearLayout Header for Videos &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:id="@+id/top_ll"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="YouTube Videos"-->
+<!--                    android:textSize="20sp"-->
+<!--                    android:padding="5dp"-->
+<!--                    android:layout_marginRight="5dp" />-->
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="4dp"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:background="@color/white" />-->
+<!--            </LinearLayout>-->
+
+<!--            &lt;!&ndash; RecyclerView for YouTube Videos &ndash;&gt;-->
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/video_recycler_home"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="10dp" />-->
+
+            <!-- LinearLayout Header for Articles -->
+            <LinearLayout
+                android:id="@+id/middle_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/articles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Articles"
+                    android:textSize="20sp"
+                    android:padding="5dp"
+                    android:layout_marginRight="5dp" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/white" />
+            </LinearLayout>
+
+            <!-- RecyclerView for Articles -->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/news_recycler_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp" />
+
+                <ProgressBar
+                    android:id="@+id/news_pd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+
+
+            <!-- LinearLayout Header for Articles -->
+            <LinearLayout
+                android:id="@+id/bottom_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weekly Weather Forecast"
+                    android:textSize="20sp"
+                    android:padding="5dp"
+                    android:layout_marginRight="5dp" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/white" />
+            </LinearLayout>
+
+            <!-- RecyclerView for Articles -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/weather_recycler_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/error_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

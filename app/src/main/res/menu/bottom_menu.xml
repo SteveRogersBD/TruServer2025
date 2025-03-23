@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/home_bottom"
+        android:title="Home"
+        android:icon="@drawable/baseline_home_24"
+        app:showAsAction="always"/>
+    <item android:id="@+id/schedule_bottom"
+        android:title="Schedule"
+        android:icon="@drawable/baseline_schedule_24"
+        app:showAsAction="always"/>
+    <item android:id="@+id/analyze_bottom"
+        android:title="Analyze"
+        android:icon="@drawable/analyze"
+        app:showAsAction="always"/>
+    <item android:id="@+id/map_bottom"
+        android:title="Scout"
+        android:icon="@drawable/location"
+        app:showAsAction="always"/>
+    <item android:id="@+id/bot_bottom"
+        android:title="ChatBot"
+        android:icon="@drawable/bot"
+        app:showAsAction="always"/>
+</menu>

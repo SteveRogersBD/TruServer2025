@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    tools:context=".activities.ChatBotActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_height="56dp"
+        android:layout_width="match_parent"
+        android:id="@+id/chat_toolbar"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="660dp"
+        android:id="@+id/main_recycler"
+        android:layout_below="@+id/chat_toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp"
+        android:layout_alignBottom="@+id/main_recycler">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/send_btn"
+            android:padding="10dp"
+            android:id="@+id/text_et"
+            android:textSize="20sp"
+            android:background="@drawable/bg"
+            />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/send"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:id="@+id/send_btn"
+            app:tint="@color/colorPrimaryVariant" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

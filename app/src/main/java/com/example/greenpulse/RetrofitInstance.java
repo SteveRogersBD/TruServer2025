@@ -4,6 +4,7 @@ import com.example.greenpulse.apiInterfaces.GPApi;
 import com.example.greenpulse.apiInterfaces.NewsApi;
 import com.example.greenpulse.apiInterfaces.VideoApi;
 import com.example.greenpulse.apiInterfaces.WeatherApi;
+import com.example.greenpulse.apiInterfaces.WeatherVideo;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -23,9 +24,17 @@ public class RetrofitInstance {
             addConverterFactory(GsonConverterFactory.create())
             .build();
 
+    public static final Retrofit WVFit = new Retrofit.Builder().
+            baseUrl("http://150.243.144.117:5000/").
+            addConverterFactory(GsonConverterFactory.create())
+            .build();
+
+
 
     public static NewsApi newsApi(){return NewsFit.create(NewsApi.class);}
     public static WeatherApi weatherApi(){return WeatherFit.create(WeatherApi.class);}
     public static GPApi gpApi(){return GPFit.create(GPApi.class);}
+
+    public static WeatherVideo weatherVideo(){return WVFit.create(WeatherVideo.class);}
 
 }

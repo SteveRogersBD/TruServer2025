@@ -26,8 +26,9 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="100dp"
             android:id="@+id/dots"
+            app:tint="@color/colorPrimaryVariant"
             />
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/next_btn"
             android:layout_width="100dp"
             android:layout_height="60dp"
@@ -37,6 +38,8 @@
             android:padding="5dp"
             android:layout_marginRight="20dp"
             android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimaryVariant"
             />
 
     </LinearLayout>

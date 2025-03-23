@@ -61,4 +61,20 @@ public class Field {
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
+
+    public MyLatLng getCenterPoint() {
+        return centerPoint;
+    }
+
+    public void setCenterPoint(MyLatLng centerPoint) {
+        this.centerPoint = centerPoint;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

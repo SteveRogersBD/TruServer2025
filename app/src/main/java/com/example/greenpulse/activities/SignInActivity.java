@@ -50,8 +50,8 @@ public class SignInActivity extends AppCompatActivity {
             } else if (id==binding.signInBtnSignIn.getId()) {
 
                 logInUser();
-                startActivity(new Intent(SignInActivity.this, MainActivity.class));
-                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+//                startActivity(new Intent(SignInActivity.this, MainActivity.class));
+//                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
             }
         }
     };

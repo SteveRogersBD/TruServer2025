@@ -20,6 +20,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.greenpulse.activities.AnalyzeActivity;
 import com.example.greenpulse.activities.ChatBotActivity;
+import com.example.greenpulse.activities.FieldActivity;
 import com.example.greenpulse.activities.MapActivity;
 import com.example.greenpulse.adapters.VPAdapter;
 import com.example.greenpulse.databinding.ActivityMainBinding;
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MapActivity.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             } else if (id == R.id.schedule_bottom) {
-                startActivity(new Intent(MainActivity.this, AnalyzeActivity.class));
+                startActivity(new Intent(MainActivity.this, FieldActivity.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             } else if (id == R.id.bot_bottom) {
                 startActivity(new Intent(MainActivity.this, ChatBotActivity.class));
@@ -128,9 +129,9 @@ public class MainActivity extends AppCompatActivity {
                             SharedPrefManager sm = new SharedPrefManager(MainActivity.this);
                             sm.saveLocation(latitude,longitude);
                             // Display location (for debugging purposes)
-                            Toast.makeText(MainActivity.this, "Location: " + latitude + ", " + longitude, Toast.LENGTH_LONG).show();
+                            //Toast.makeText(MainActivity.this, "Location: " + latitude + ", " + longitude, Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(MainActivity.this, "Unable to fetch location", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(MainActivity.this, "Unable to fetch location", Toast.LENGTH_SHORT).show();
                         }
                     });
         }

@@ -1,6 +1,5 @@
 package com.example.greenpulse.activities;
 
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.SearchView;
@@ -11,7 +10,6 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -28,7 +26,6 @@ import android.widget.Toast;
 
 import com.example.greenpulse.OtherActivity;
 import com.example.greenpulse.R;
-import com.example.greenpulse.SharedPrefManager;
 import com.example.greenpulse.databinding.ActivityMapBinding;
 import com.example.greenpulse.models.Event;
 import com.example.greenpulse.models.Field;
@@ -62,20 +59,18 @@ import java.util.Locale;
 
 public class MapActivity extends OtherActivity implements OnMapReadyCallback {
 
-
     ActivityMapBinding binding;
     GoogleMap mMap;
-    SharedPreferences sp;
     private final int LOCATION_CODE = 2000;
     FusedLocationProviderClient locationProviderClient;
-    List<LatLng>pointList;
-    List<MyLatLng>myPointList;
+    List<LatLng> pointList;
+    List<MyLatLng> myPointList;
     List<Circle> circles = new ArrayList<>();
     Polygon polygon;
-    DatabaseReference fieldDb,eventDb;
-    List<Field>myFields;
-    List<Event>events;
-    SharedPrefManager sm;
+    DatabaseReference fieldDb, eventDb;
+    List<Field> myFields;
+    List<Event> events;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,8 +83,6 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         fieldDb = FirebaseDatabase.getInstance().getReference().child("fields");
         eventDb = FirebaseDatabase.getInstance().getReference().child("events");
         locationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-        sm = new SharedPrefManager(MapActivity.this);
-
 
         // Obtain the SupportMapFragment and get notified when the map is ready to use.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -97,11 +90,11 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
-        binding.drawButton.setOnClickListener((v)->{
+        binding.drawButton.setOnClickListener((v) -> {
             drawPolygon();
             callDialogue();
         });
-        binding.deleteButton.setOnClickListener((v)->{
+        binding.deleteButton.setOnClickListener((v) -> {
             clearPolygons();
         });
         binding.searchView.setBackground(getDrawable(R.drawable.search_view_bg));
@@ -117,12 +110,10 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
                 return false;
             }
         });
-
     }
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
-        Toast.makeText(this, ""+sm.getUserId(), Toast.LENGTH_SHORT).show();
         mMap = googleMap;
         askLocationPermission();
         retrieveFields();
@@ -148,7 +139,6 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
                 callDialogue2Event(latLng);
             }
         });
-
     }
 
     private void retrieveFields() {
@@ -173,7 +163,6 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         });
     }
 
-
     private void addFieldsOnMap(List<Field> fields) {
         for (Field field : myFields) {
             List<MyLatLng> fieldPointsWrapper = field.points;
@@ -190,6 +179,7 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
             polygon = mMap.addPolygon(polygonOptions);
         }
     }
+
     // Added: Retrieve events from Firebase
     private void retrieveEvents() {
         eventDb.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -212,6 +202,7 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
             }
         });
     }
+
     // Added: Display events on the map
     private void addEventsOnMap(List<Event> events) {
         for (Event event : events) {
@@ -219,26 +210,13 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         }
     }
 
-    private void retrieveMyLocation(String[] location)
-    {
-        sp = getSharedPreferences("userInfo",MODE_PRIVATE);
-        location[0] = sp.getString("lat", null);
-        location[1] = sp.getString("lon", null);
-        if(location[0]==null || location[1]==null)
-        {
-            askLocationPermission();
-        }
-    }
-    private void askLocationPermission()
-    {
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)!=
+    private void askLocationPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) !=
                 PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
-        {
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
-                    Manifest.permission.ACCESS_FINE_LOCATION},LOCATION_CODE);
-        }
-        else{
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_CODE);
+        } else {
             getCurrentLocation();
         }
     }
@@ -246,28 +224,23 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode==LOCATION_CODE)
-        {
-            if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
-            {
+        if (requestCode == LOCATION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 //permission granted so call getCurrentLocation()
                 getCurrentLocation();
-            }
-            else {
+            } else {
                 //permission denied. so do nothing
             }
         }
     }
 
     @SuppressLint("MissingPermission")
-    private void getCurrentLocation()
-    {
+    private void getCurrentLocation() {
         locationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-        locationProviderClient.getLastLocation().addOnSuccessListener(this,new OnSuccessListener<Location>() {
+        locationProviderClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                if(location!=null)
-                {
+                if (location != null) {
                     double latitude = location.getLatitude();
                     double longitude = location.getLongitude();
 
@@ -286,10 +259,6 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
     }
 
     private void drawPolygon() {
-        // Clear any existing polygons
-//        if (polygon != null) {
-//            polygon.remove();
-//        }
         // Create a polygon on the map using the points
         PolygonOptions polygonOptions = new PolygonOptions()
                 .addAll(pointList) // Add the points to the polygon
@@ -299,8 +268,8 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         // Add the polygon to the map
         polygon = mMap.addPolygon(polygonOptions);
         //pointList.clear();
-
     }
+
     private LatLng calculateCenterPoint(List<MyLatLng> points) {
         List<LatLng> pointsList = new ArrayList<>();
         for (MyLatLng point : points) {
@@ -351,6 +320,7 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         }
         circles.clear(); // Clear the list of circles
     }
+
     // Method to search for a location
     private void searchLocation(String location) {
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
@@ -379,7 +349,7 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         }
     }
 
-    private void callDialogue(){
+    private void callDialogue() {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_layout);
         dialog.setTitle("Create Entry");
@@ -392,7 +362,6 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         TextInputEditText titleEditText = dialog.findViewById(R.id.edit_text_title);
         TextInputEditText descriptionEditText = dialog.findViewById(R.id.edit_text_description);
         AppCompatButton button = dialog.findViewById(R.id.done_btn);
-
 
         button.setOnClickListener(v -> {
             String title = titleEditText.getText().toString();
@@ -415,9 +384,9 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
             }
             LatLng centerPoint = calculateCenterPoint(myPointList);
             String address = getAddressFromLatLng(centerPoint);
-            MyLatLng cp = new MyLatLng(centerPoint.latitude,centerPoint.longitude);
+            MyLatLng cp = new MyLatLng(centerPoint.latitude, centerPoint.longitude);
             // Create Field object and save to database
-            Field myField = new Field(title, description, cp,address,
+            Field myField = new Field(title, description, cp, address,
                     myPointList, new ArrayList<Task>());
             fieldDb.child(myField.title).setValue(myField);
             pointList.clear();
@@ -427,10 +396,9 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         });
 
         dialog.show();
-
-
     }
-    private void callDialogue2Event(LatLng latLng){
+
+    private void callDialogue2Event(LatLng latLng) {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_layout);
         dialog.setTitle("Create Entry");
@@ -443,7 +411,6 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         TextInputEditText titleEditText = dialog.findViewById(R.id.edit_text_title);
         TextInputEditText descriptionEditText = dialog.findViewById(R.id.edit_text_description);
         AppCompatButton button = dialog.findViewById(R.id.done_btn);
-
 
         button.setOnClickListener(v -> {
             String title = titleEditText.getText().toString();
@@ -459,11 +426,8 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
                 return;
             }
 
-            // Populate myPointList with LatLng values
-
-
             // Create Field object and save to database
-            Event myEvent = new Event(title, description,latLng.latitude,latLng.longitude);
+            Event myEvent = new Event(title, description, latLng.latitude, latLng.longitude);
             eventDb.child(myEvent.title).setValue(myEvent);
             events.add(myEvent);
             // Display success message and dismiss the dialog
@@ -473,13 +437,11 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         });
 
         dialog.show();
-
-
     }
 
     private void drawCircle(Event event) {
         // Define the circle's properties
-        LatLng latLng = new LatLng(event.lat,event.lon);
+        LatLng latLng = new LatLng(event.lat, event.lon);
         CircleOptions circleOptions = new CircleOptions()
                 .center(latLng) // The center of the circle
                 .radius(100) // Radius of the circle in meters (you can adjust this)
@@ -498,12 +460,4 @@ public class MapActivity extends OtherActivity implements OnMapReadyCallback {
         // Add the marker to the map
         mMap.addMarker(markerOptions);
     }
-
-
-
-
-
-
-
-
 }
